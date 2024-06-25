@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Calculator</title>
+</head>
+<body>
+    <h1>Arithmetic Calculator</h1>
+    <form action="/add" method="post">
+        <label for="num1">Enter first number:</label>
+        <input type="text" id="num1" name="num1">
+        <label for="num2">Enter second number:</label>
+        <input type="text" id="num2" name="num2">
+        <select name="operation">
+            <option value="add">Addition</option>
+            <option value="subtract">Subtraction</option>
+            <option value="multiply">Multiplication</option>
+            <option value="divide">Division</option>
+        </select>
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>
