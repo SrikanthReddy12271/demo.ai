@@ -6,6 +6,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
 @app.route('/add', methods=['GET', 'POST'])
 def add():
     if request.method == 'POST':
@@ -14,6 +15,7 @@ def add():
         result = num1 + num2
         return render_template('result.html', result=result)
     return render_template('index.html')
+
 
 @app.route('/subtract', methods=['GET', 'POST'])
 def subtract():
@@ -24,6 +26,7 @@ def subtract():
         return render_template('result.html', result=result)
     return render_template('index.html')
 
+
 @app.route('/multiply', methods=['GET', 'POST'])
 def multiply():
     if request.method == 'POST':
@@ -32,6 +35,7 @@ def multiply():
         result = num1 * num2
         return render_template('result.html', result=result)
     return render_template('index.html')
+
 
 @app.route('/divide', methods=['GET', 'POST'])
 def divide():
@@ -46,5 +50,4 @@ def divide():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
-
+    app.run()
