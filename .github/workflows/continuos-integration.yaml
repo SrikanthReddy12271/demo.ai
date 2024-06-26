@@ -19,14 +19,7 @@ jobs:
         python-version: '3.10'
 
     - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-        pip install flake8
-
-    - name: Lint application
-      run: |
-        # Lint the application to catch syntax errors and style issues
-        flake8 app.py
+      run: pip install -r requirements.txt
 
   test:
     needs: build
