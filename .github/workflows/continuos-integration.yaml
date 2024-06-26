@@ -21,9 +21,10 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Build application
+    - name: Lint application
       run: |
-        python app.py  # Command to build/run your application
+        # Lint the application to catch syntax errors and style issues
+        flake8 app.py
 
   test:
     needs: build
@@ -43,7 +44,8 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest test_app.py  # Run your tests
+        # Run your tests using pytest
+        pytest test_app.py
 
   push:
     needs: test
