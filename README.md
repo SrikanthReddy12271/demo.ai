@@ -133,6 +133,9 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/my-web-app:latest
+'''
+
+
 #### Step 4: Add Docker Hub Credentials
 Add your Docker Hub credentials as secrets in your GitHub repository (`DOCKER_USERNAME` and `DOCKER_PASSWORD`).
 
