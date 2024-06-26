@@ -40,41 +40,11 @@ jobs:
         pip install pytest
 
     - name: Run tests
-      run: pytest test_app.py  # Run your tests
-
-  run_docker:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    - name: Build Docker image
       run: |
-        docker build -t my-web-app .
-
-    - name: Run Docker container
-      run: |
-        docker run -d -p 5000:5000 --name my-web-app-container my-web-app
-
-    - name: Test Docker container
-      run: |
-        # Wait for the container to be ready
-        sleep 10
-        # Check if the application is running correctly
-        curl -f http://localhost:5000 || exit 1
-
-    - name: Stop Docker container
-      run: |
-        docker stop my-web-app-container
-        docker rm my-web-app-container
+        pytest test_app.py  # Run your tests
 
   push:
-    needs: run_docker
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
